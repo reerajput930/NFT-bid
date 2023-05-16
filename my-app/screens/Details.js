@@ -6,6 +6,7 @@ import {
   BidsData,
   EndDate,
 } from "../component/smallComponents";
+import { useNavigation } from "@react-navigation/native";
 import { NFTData } from "../constants/dummy";
 import React, { useState } from "react";
 
@@ -27,10 +28,10 @@ const DetailHeader = ({ Navigation, data }) => {
     <View >
      
       <View>
-        <Info data={data} btnStatus={false} />
+        <Info data={data} padding={2} btnStatus={false} />
       </View>
 
-      <View style={{ padding: 15, marginTop: 30 }}>
+      <View style={{ padding: 2, marginTop: 30,marginBottom:15 }}>
         <Text style={{ fontWeight: "500", marginBottom: 10, fontSize: 18 }}>
           Description
         </Text>
@@ -48,7 +49,7 @@ const DetailHeader = ({ Navigation, data }) => {
 
 export default function Details({ Navigation, route }) {
   const { data } = route.params;
-
+  const navigation = useNavigation();
 
   return (
     <View style={{flex:1}}>
@@ -74,7 +75,7 @@ export default function Details({ Navigation, route }) {
         />
 
         <RoundButton height={50} width={50} top={25} right={10} />
-        <BackButton handlePress={() => Navigation.goBack()} />
+        <BackButton handlePress={() => navigation.navigate("Home") } />
         <EndDate marginRight={8} />
       </View>
 

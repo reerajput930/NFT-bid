@@ -37,7 +37,7 @@ export default function Card({ data }) {
       </View>
 
       <View>
-        <Info data={data} />
+        <Info data={data} padding={"5%"} />
       </View>
     </View>
   );

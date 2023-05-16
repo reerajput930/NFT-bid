@@ -67,7 +67,7 @@ export const BackButton = ({ handlePress }) => {
   );
 };
 
-export const Info = ({ data ,btnStatus}) => {
+export const Info = ({ data ,btnStatus,padding}) => {
   
   const [showReachButton,setshowReachButton]=useState(true)
     // console.log("btn status", btnStatus)
@@ -80,7 +80,7 @@ export const Info = ({ data ,btnStatus}) => {
   const navigation = useNavigation();
 
   return (
-    <View style={{ padding: "5%" }}>
+    <View style={{ padding: padding }}>
       <View>
         <View>
           <Text style={{ fontSize: 20, fontWeight: "600" }}>{data.name}</Text>
@@ -102,7 +102,7 @@ export const Info = ({ data ,btnStatus}) => {
           <Text style={{ marginLeft: 8 }}>{data.price}</Text>
         </View>
         {/* it is like the link in reactjs */}
-       { showReachButton && <RechButton
+         { showReachButton && <RechButton
           handlePress={() => navigation.navigate("Details", { data })}
         />}
       </View>

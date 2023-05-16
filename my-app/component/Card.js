@@ -30,8 +30,8 @@ export default function Card({ data }) {
           }}
         />
 
-        <RoundButton />
-        
+        <RoundButton height={"20%"} width={"15%"} top={2}
+            right={2}/>
       </View>
 
       <View>

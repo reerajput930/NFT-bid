@@ -25,12 +25,14 @@ export default function App() {
   
   return (
     
+    // like in react it is browseRoute
     <NavigationContainer>
           <Stack.Navigator
          screenOptions ={{headerShown: false}}
          initialRouteName="Home"
          
           >
+            {/* like in react it is route */}
           <Stack.Screen name="Home" component={Home}/>
           <Stack.Screen name="Details" component={Details}/>
          </Stack.Navigator>

@@ -3,6 +3,7 @@ import heartImg from "../assets/icons/heart.png";
 import ethImg from "../assets/icons/eth.png";
 import leftImg from "../assets/icons/left.png";
 import { useNavigation } from "@react-navigation/native";
+import React,{useState} from "react";
 
 export const RoundButton = ({ height, width, top, right }) => {
   return (
@@ -66,7 +67,16 @@ export const BackButton = ({ handlePress }) => {
   );
 };
 
-export const Info = ({ data }) => {
+export const Info = ({ data ,btnStatus}) => {
+  
+  const [showReachButton,setshowReachButton]=useState(true)
+    // console.log("btn status", btnStatus)
+  
+  //   if(btnStatus == false){
+    
+  //   setshowReachButton(!showReachButton)
+  //    console.log("state status",showReachButton)
+  // }
   const navigation = useNavigation();
 
   return (
@@ -92,9 +102,9 @@ export const Info = ({ data }) => {
           <Text style={{ marginLeft: 8 }}>{data.price}</Text>
         </View>
         {/* it is like the link in reactjs */}
-        <RechButton
+       { showReachButton && <RechButton
           handlePress={() => navigation.navigate("Details", { data })}
-        />
+        />}
       </View>
     </View>
   );
@@ -102,10 +112,17 @@ export const Info = ({ data }) => {
 
 export const BidsData = ({ data }) => {
   return (
-    <View style={{flexDirection:"row",justifyContent:"space-between",alignItems:"stretch",marginBottom:30}}>
+    <View
+      style={{
+        flexDirection: "row",
+        justifyContent: "space-between",
+        alignItems: "stretch",
+        marginBottom: 30,
+      }}
+    >
       <Image source={data.image} style={{ height: 60, width: 60 }} />
       <View>
-        <Text style={{fontWeight:"500"}}>{data.name}</Text>
+        <Text style={{ fontWeight: "500" }}>{data.name}</Text>
 
         <View
           style={{
@@ -124,6 +141,34 @@ export const BidsData = ({ data }) => {
           <Text style={{ marginLeft: 8 }}>{data.price}</Text>
         </View>
       </View>
+    </View>
+  );
+};
+
+export const EndDate = ({marginRight}) => {
+  return (
+    <View
+      style={{
+        backgroundColor: "white",
+        color: "black",
+        position:"absolute",
+        bottom:-25,
+        right:6,
+        width:"40%",
+        height:"20%",
+        justifyContent:"center",
+        alignItems:"center",
+        borderRadius:10,
+        alignContent:"center",
+        paddingLeft:6,
+        marginRight:marginRight,
+        alignContent:"center"
+
+      }}
+    >
+      <Text>
+        Ending In:<Text style={{fontWeight:"600",}}> 12:45</Text>{" "}
+      </Text>
     </View>
   );
 };

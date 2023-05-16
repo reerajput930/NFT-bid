@@ -1,5 +1,5 @@
 import { Text, View, Image } from "react-native";
-import { RechButton, RoundButton, Info } from "./smallComponents";
+import { RechButton, RoundButton, Info,EndDate } from "./smallComponents";
 
 export default function Card({ data }) {
   return (
@@ -32,6 +32,8 @@ export default function Card({ data }) {
 
         <RoundButton height={"20%"} width={"15%"} top={2}
             right={2}/>
+          
+        <EndDate/>
       </View>
 
       <View>
